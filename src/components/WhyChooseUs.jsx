@@ -1,31 +1,37 @@
-import { Zap, ClipboardList, Wrench, MapPin } from "lucide-react";
+import {
+  Zap,
+  ClipboardList,
+  Wrench,
+  MapPin,
+  ArrowUpRight,
+} from "lucide-react";
 import Reveal from "./Reveal";
 
 function WhyChooseUs() {
   const benefits = [
     {
       icon: Zap,
-      title: "Atención rápida",
+      title: "Atención ágil",
       description:
-        "Coordinamos la visita según la disponibilidad y la urgencia de cada servicio.",
+        "Coordinamos la visita según la disponibilidad y las características de cada servicio.",
     },
     {
       icon: ClipboardList,
       title: "Presupuestos claros",
       description:
-        "Evaluamos cada trabajo y brindamos información clara antes de comenzar.",
+        "Brindamos información clara sobre el trabajo antes de comenzar.",
     },
     {
       icon: Wrench,
-      title: "Experiencia",
+      title: "Soluciones prácticas",
       description:
-        "Ofrecemos soluciones para hogares, comercios y empresas.",
+        "Buscamos resolver cada necesidad de forma ordenada y adecuada.",
     },
     {
       icon: MapPin,
       title: "Cobertura local",
       description:
-        "Trabajamos en Montevideo y Ciudad de la Costa.",
+        "Atendemos servicios en Montevideo y Ciudad de la Costa.",
     },
   ];
 
@@ -33,22 +39,30 @@ function WhyChooseUs() {
     <section className="why-us" id="nosotros">
       <div className="why-us-container">
 
-        <Reveal as="div" className="section-header">
-          <span>¿POR QUÉ ELEGIRNOS?</span>
+        <Reveal as="div" className="why-us-intro">
+          <span className="why-us-label">
+            POR QUÉ ELEGIRNOS
+          </span>
 
           <h2>
-            Soluciones pensadas para tu tranquilidad
+            Un servicio pensado para resolver, no para complicar
           </h2>
 
           <p>
-            Nos enfocamos en ofrecer un servicio profesional, claro y
-            adaptado a las necesidades de cada cliente.
+            Cuando surge un problema sanitario, necesitas una solución clara
+            y una atención que te dé confianza desde el primer contacto.
           </p>
+
+          <a href="#contacto" className="why-us-cta">
+            Consultar por un servicio
+            <ArrowUpRight size={18} strokeWidth={2} />
+          </a>
         </Reveal>
 
         <div className="benefits-grid">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
+
             return (
               <Reveal
                 as="article"
@@ -57,12 +71,14 @@ function WhyChooseUs() {
                 delay={index * 80}
               >
                 <div className="benefit-icon">
-                  <Icon size={26} strokeWidth={1.8} />
+                  <Icon size={25} strokeWidth={1.8} />
                 </div>
 
-                <h3>{benefit.title}</h3>
+                <div className="benefit-content">
+                  <h3>{benefit.title}</h3>
 
-                <p>{benefit.description}</p>
+                  <p>{benefit.description}</p>
+                </div>
               </Reveal>
             );
           })}
